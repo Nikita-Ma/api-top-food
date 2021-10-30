@@ -5,6 +5,7 @@ export enum TopFoodCategory {
 }
 
 export class TopFoodModel {
+    _id: string;
     firstLevelCategory: TopFoodCategory;
     secondLevelCategory: string;
     title: string;
