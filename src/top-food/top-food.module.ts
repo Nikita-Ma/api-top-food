@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TopFoodController } from './top-food.controller';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  controllers: [TopFoodController]
+  imports: [ConfigModule],
+  controllers: [TopFoodController],
 })
 export class TopFoodModule {}

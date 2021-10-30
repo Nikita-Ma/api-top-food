@@ -1,5 +1,5 @@
-import {TopFoodCategory} from "../top-food.model";
+import { TopFoodCategory } from '../top-food.model';
 
 export class FindTopFoodDto {
-    firstLevelCategory: TopFoodCategory
+  firstLevelCategory: TopFoodCategory;
 }
