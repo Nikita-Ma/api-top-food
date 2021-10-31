@@ -21,7 +21,9 @@ export class TopFoodController {
   }
 
   @Delete(':id')
-  async delete(@Param('id') id: string) {}
+  async delete(@Param('id') id: string) {
+    let a = id
+  }
 
   @Patch(':id')
   async patch(@Param('id') id: string, @Body() dto: TopFoodModel) {}
