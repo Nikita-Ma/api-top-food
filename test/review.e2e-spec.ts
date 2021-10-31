@@ -7,8 +7,6 @@ import { disconnect, Types } from 'mongoose';
 import { REVIEW_NOT_FOUND } from '../src/review/review.constants';
 
 
-
-
 const productId = new Types.ObjectId().toHexString();
 //mocs
 const testDTO: CreateReviewDto = {
@@ -44,6 +42,15 @@ describe('AppController (e2e)', () => {
         done(); // end test
       });
   });
+
+
+  it('/review/create (POST)  - fail', () => {
+    return request(app.getHttpServer())
+      .post('/review/create')
+      .send({ ...testDTO, rating: 0 })
+      .expect(400);
+  });
+
 
   it('/review/byProduct/:productId (GET) - success', async (done) => {
     return request(app.getHttpServer())
