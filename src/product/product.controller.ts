@@ -13,6 +13,7 @@ import { FindProductDto } from './dto/find-product.dto';
 import { CreateProductDto } from './dto/create-product.dto';
 import { ProductService } from './product.service';
 import { PRODUCT_NOT_FOUND_ERROR } from './product.constants';
+import { IdValidationPipe } from '../pipes/id-validation.pipe';
 
 @Controller('product')
 export class ProductController {
@@ -35,7 +36,7 @@ export class ProductController {
   }
 
   @Delete()
-  async delete(@Param('id') id: string) {
+  async delete(@Param('id', IdValidationPipe) id: string) {
     const deletedProduct = await this.productService.deleteById(id);
     if (!deletedProduct) {
       throw new NotFoundException(PRODUCT_NOT_FOUND_ERROR);
